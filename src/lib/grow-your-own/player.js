@@ -6,8 +6,8 @@ class Player {
 		if (!color) {
 			throw new Error ('A new Player must have a color (for their game peice).');
 		}
-		this.name = name,
-		this.color = color
+		this.name = name;
+		this.color = color;
 		this.resources = {
 			sun: 5,
 			rain: 5,
@@ -18,4 +18,4 @@ class Player {
 	}
 }
 
-module.exports = Player;
+export default Player;

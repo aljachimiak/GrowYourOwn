@@ -9,4 +9,4 @@ class Move {
 	}
 }
 
-module.exports = Move;
+export default Move;

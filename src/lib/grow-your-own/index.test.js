@@ -1,12 +1,11 @@
-import GYO from './index';
+const GYO = require('./index');
 
 describe('GrowYourOwn', () => {	
 	describe('takeTurn', () => {
-		const player1 = new GYO.Player('Jones', 'red');
-		let game = new GYO.Game({players: [player1]});
+		const player1 = new GYO.default.Player('Jones', 'red');
+		let game = new GYO.default.Game({players: [player1]});
 		const playerIndex = 0;
-	
-		game = GYO.takeTurn({game, playerIndex});
+		game = GYO.default.takeTurn({game, playerIndex});
 		it('increments the game properly', () => {
 			expect(game.players[playerIndex].position).not.toBe(0);
 		});
@@ -16,7 +15,7 @@ describe('GrowYourOwn', () => {
 	});
 
 	describe('playGame makes a game', () => {
-		const game = GYO.playGame();
+		const game = GYO.default.playGame();
 		it('with hasWinner', () => {
 			expect(game.hasWinner).toBe(true);
 		});
@@ -24,9 +23,8 @@ describe('GrowYourOwn', () => {
 			expect(game.moves.length).toBeGreaterThan(1);
 		});
 		it('player has a growth of 11', () => {
-			console.log(JSON.stringify(game, null, 2));
+			// console.log(JSON.stringify(game, null, 2));
 			expect(game.players[0].growth).toBe(11);
 		});
-		expect
 	});
 });

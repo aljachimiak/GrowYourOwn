@@ -156,4 +156,5 @@ GameAction.robotTileRegulatePeaks = robotTileRegulatePeaks;
 GameAction.determineNewResources = determineNewResources;
 GameAction.resetPlayerPosition = resetPlayerPosition;
 GameAction.determinePlantGrowth = determinePlantGrowth;
-module.exports = GameAction;
+
+export default GameAction;
