@@ -14,9 +14,9 @@ module.exports = {
 		const dist = Dice.roll(2);
 
 		game = GameAction.updatePlayerPosition({game, playerIndex, dist});
-		game = GameAction.applyNewResources({game, playerIndex});
+		game = GameAction.applyNewResources({game, playerIndex, dist});
 		game = GameAction.growPlant({game, playerIndex});
-		game = GameAction.recordMove({game, playerIndex});
+		game = GameAction.recordMove({game, playerIndex, dist});
 		game = GameAction.reduceResources({game, playerIndex});
 
 		return game;
@@ -29,7 +29,7 @@ module.exports = {
 		while(!game.hasWinner) {
 			// only one player at this time
 			const playerIndex = 0;
-			game = this.takeTurn();
+			game = this.takeTurn({game, playerIndex});
 		}
 		return game;
 	}
