@@ -129,8 +129,9 @@ const recordMove = (args) => {
 	const growth = game.players[playerIndex].growth;
 	const playerResources = _.cloneDeep(game.players[playerIndex].resources);
 	const dist = args.dist;
+	const tile = _.cloneDeep(getBoardTile({game, playerIndex}));
 
-	const move = new Move({playerIndex, growth, playerResources, dist});
+	const move = new Move({playerIndex, growth, playerResources, dist, tile});
 
 	game.moves.push(move);
 	return game;

@@ -6,6 +6,7 @@ class Move {
 		this.playerIndex = args.playerIndex || 0;
 		this.playerResources = _.cloneDeep(args.playerResources);
 		this.roll = args.dist;
+		this.tile = _.cloneDeep(args.tile);
 	}
 }
 
