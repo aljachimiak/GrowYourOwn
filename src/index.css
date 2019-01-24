@@ -60,3 +60,6 @@ code {
 	font-weight: bold;    
 	font-size: 12px;
 }
+table.table {
+	margin-bottom: 10px !important;
+}
