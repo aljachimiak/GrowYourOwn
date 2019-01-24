@@ -12,7 +12,8 @@ const updatePlayerPosition = (args) => {
 
 // applyNewResources
 const applyNewResources = (args) => {
-	const {game, playerIndex} = args;
+	let game = args.game;
+	const {playerIndex, dist} = args;
 	// todo add errors for missing args
 
 	if (game.players[playerIndex].position >= 36) {
@@ -21,7 +22,7 @@ const applyNewResources = (args) => {
 		game = resetPlayerPosition(args);
 	}
 
-	const newResources = determineNewResources({game, playerIndex});
+	const newResources = determineNewResources({game, playerIndex, dist});
 	Object.keys(newResources).forEach(k => {
 		game.players[playerIndex].resources[k] = newResources[k];
 	});
@@ -37,7 +38,7 @@ const resetPlayerPosition = (args) => {
 }
 
 const determineNewResources = (args) => {
-	const {game, playerIndex} = args;
+	const {game, playerIndex, dist} = args;
 	const tile = getBoardTile({game, playerIndex});
 	const type = tile.type;
 
@@ -59,7 +60,7 @@ const determineNewResources = (args) => {
 
 	} else {
 		// player gets resources
-		ressources = Object.assign({}, defaultResources);
+		newResources = Object.assign({}, defaultResources);
 		newResources[type] += dist;
 	}
 	return newResources;
@@ -124,8 +125,9 @@ const recordMove = (args) => {
 	const {game, playerIndex} = args;
 	const growth = game.players[playerIndex].growth;
 	const playerResources = game.players[playerIndex].resources;
+	const dist = args.dist;
 
-	const move = new Move({playerIndex, growth, playerResources});
+	const move = new Move({playerIndex, growth, playerResources, dist});
 
 	game.moves.push(move);
 	return game;
