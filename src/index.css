@@ -12,3 +12,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.move-container {
+	font-family: monospace;
+	padding-top: 51px;
+	text-align: left;
+}
