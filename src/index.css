@@ -15,8 +15,9 @@ code {
 
 .move-container {
 	font-family: monospace;
-	padding-top: 61px;
 	text-align: left;
+	max-width: 440px;
+	padding: 61px 4px;
 }
 .move-item-emoji {
 	font-size: 22px;
@@ -43,6 +44,7 @@ code {
 	align-items: center;
 
 	font-size:80px;
+	border-radius: 6px;
 }
 
 .badge {

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import GYO from '../lib/grow-your-own';
 import Header from './header';
 import MoveItem from './move-item';
+import {Grid, Col} from 'react-bootstrap';
 
 class Home extends Component {
 	constructor() {
@@ -31,9 +32,13 @@ class Home extends Component {
 	  return (
 		<div className="Home">
 			<Header />
-			<div className="move-container">
-				{this.renderGameMoves()}
-			</div>
+			<Grid>
+			<Col>
+				<div className="move-container">
+					{this.renderGameMoves()}
+				</div>
+			</Col>
+			</Grid>
 		</div>
 	  );
 	}
