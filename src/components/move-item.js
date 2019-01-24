@@ -29,7 +29,9 @@ class MoveItem extends Component {
 							<tbody>
 								<tr>
 									<td>Plant Growth:</td>
-									<td>{this.state.move.growth}</td>
+									<td><span className="move-item-emoji" role="img" aria-labelledby="sprout">🌱</span>
+											<Badge>{this.state.move.growth}
+											</Badge></td>
 								</tr>
 								<tr>
 									<td>Resources: </td>
