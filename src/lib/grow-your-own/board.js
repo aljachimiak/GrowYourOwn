@@ -3,7 +3,7 @@ class Board {
 		const board = [];
 		const farmRobot = {
 			type: 'robot',
-			label: 'Robotic Recalibration',
+			label: 'Robo-Calibrate',
 			emoji: '🤖'
 		};
 		const regularTiles = [

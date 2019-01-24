@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import GYO from '../lib/grow-your-own';
 import Header from './header';
+import MoveItem from './move-item';
 
 class Home extends Component {
 	constructor() {
@@ -17,15 +18,11 @@ class Home extends Component {
 		console.log(moves[0]);
 		return moves.map((move, index) => {
 			return (
-				<div className="move-item" key={index}>
-					<p>ROLL: {move.roll}</p>
-					<p>Plant Growth: {move.growth}</p>
-					<ul>
-						<li><span>SUN: </span>{move.playerResources.sun}</li>
-						<li><span>Rain: </span>{move.playerResources.rain}</li>
-						<li><span>Fertilizer: </span>{move.playerResources.fertilizer}</li>
-					</ul>
-				</div>
+				<MoveItem 
+					index={index}
+					move={move}
+					key={index}
+				/>
 			);
 		});
 	}

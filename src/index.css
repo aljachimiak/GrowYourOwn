@@ -15,6 +15,48 @@ code {
 
 .move-container {
 	font-family: monospace;
-	padding-top: 51px;
+	padding-top: 61px;
 	text-align: left;
+}
+.move-item-emoji {
+	font-size: 22px;
+	vertical-align: middle;
+	text-shadow: 0px 0px 2px #aaa;
+}
+
+.move-item-body-grid {
+	display: flex;
+	justify-content: space-between;
+
+}
+
+.board-tile {
+	width: 120px;
+	height: 130px;
+	margin-top: 10px;
+	box-shadow: 0px 1px 5px #888;
+}
+
+.board-tile .emoji-container {
+	display:flex;
+	justify-content: center;
+	align-items: center;
+
+	font-size:80px;
+}
+
+.badge {
+	font-size: 16px !important;
+	background-color: #999 !important;
+}
+.board-tile .header {
+	color: #fff;
+	font-family: sans-serif;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	padding: 5px 0;
+	text-transform: uppercase;
+	font-weight: bold;    
+	font-size: 12px;
 }
