@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import Move from './move';
 
 const GameAction = () => {};
@@ -48,6 +49,8 @@ const determineNewResources = (args) => {
 		fertilizer: 0
 	};
 
+	const startResources = _.clone(game.players[playerIndex].resources);
+
 	let newResources;
 
 	if (type === 'robot') {
@@ -60,7 +63,7 @@ const determineNewResources = (args) => {
 
 	} else {
 		// player gets resources
-		newResources = Object.assign({}, defaultResources);
+		newResources = Object.assign({}, startResources);
 		newResources[type] += dist;
 	}
 	return newResources;
@@ -124,7 +127,7 @@ const determinePlantGrowth = (args) => {
 const recordMove = (args) => {
 	const {game, playerIndex} = args;
 	const growth = game.players[playerIndex].growth;
-	const playerResources = game.players[playerIndex].resources;
+	const playerResources = _.cloneDeep(game.players[playerIndex].resources);
 	const dist = args.dist;
 
 	const move = new Move({playerIndex, growth, playerResources, dist});
