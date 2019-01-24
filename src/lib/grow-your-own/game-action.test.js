@@ -134,4 +134,5 @@ describe('GameAction', () => {
 	xdescribe('determinePlantGrowth');
 	xdescribe('growPlant');
 	xdescribe('reduceResources');
+	xdescribe('recordMove');
 });
