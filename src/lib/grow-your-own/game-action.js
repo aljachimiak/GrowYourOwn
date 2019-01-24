@@ -119,6 +119,7 @@ const growPlant = (args) => {
 };
 
 const determinePlantGrowth = (args) => {
+	// eslint-disable-next-line
 	const {game, playerIndex} = args;
 	// todo - implment for real
 	return 1;
@@ -138,6 +139,7 @@ const recordMove = (args) => {
 };
 
 const reduceResources = (args) => {
+	// eslint-disable-next-line
 	const {game, playerIndex} = args;
 	// todo implement
 

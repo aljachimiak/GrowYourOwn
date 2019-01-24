@@ -5,7 +5,7 @@ class Header extends Component {
 	render() {
 	  return (
 	  <div className="header">
-		<Navbar fixedTop="true">
+		<Navbar fixedTop={true}>
 			<Navbar.Header>
 				<Navbar.Brand>
 					<a href="/">
