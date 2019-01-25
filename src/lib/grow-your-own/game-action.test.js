@@ -155,12 +155,25 @@ describe('GameAction', () => {
 
 	describe('reduceResources', () => {
 		describe('actually reduces the resources by one', () => {
-			const player1 = new Player('Jones', 'red');
-			let game = new Game({players: [player1]});
-		
-			const playerIndex = 0;
-			game = GameAction.reduceResources({game, playerIndex});
-			expect(game.players[playerIndex].resources.sun).toBe(4);
+			it('returns correct values', () => {
+				const player1 = new Player('Jones', 'red');
+				let game = new Game({players: [player1]});
+			
+				const playerIndex = 0;
+				game = GameAction.reduceResources({game, playerIndex});
+				expect(game.players[playerIndex].resources.sun).toBe(4);
+			});
+
+			it('does not return negative resources', () => {
+				const player1 = new Player('Jones', 'red');
+				let game = new Game({players: [player1]});
+			
+				const playerIndex = 0;
+				game.players[playerIndex].resources.sun = 0;
+				game = GameAction.reduceResources({game, playerIndex});
+
+				expect(game.players[playerIndex].resources.sun).toBe(0);
+			});
 		});
 	});
 
