@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 class BoardTile extends Component {
 	constructor(args) {
@@ -10,7 +10,7 @@ class BoardTile extends Component {
 	}
 
 	determineColor() {
-		switch(this.state.tile.type) {
+		switch (this.state.tile.type) {
 			case 'sun':
 				return 'rgb(243 178 33)';
 			case 'rain':
@@ -27,16 +27,16 @@ class BoardTile extends Component {
 	render() {
 		return (
 			<div className="board-tile" style={{border: "3px solid " + this.determineColor()}}>
-				<div className="header" style={
-					{backgroundColor: this.determineColor()}
-					}>
+				<div className="header" style={{backgroundColor: this.determineColor()}}>
 					<span>{this.state.tile.label}</span>
 				</div>
 				<div className="emoji-container">
-					<span role="img" aria-labelledby={this.state.tile.label}>{this.state.tile.emoji}</span>
+					<span role="img" aria-labelledby={this.state.tile.label}>
+						{this.state.tile.emoji}
+					</span>
 				</div>
 			</div>
-		)
+		);
 	}
 }
 

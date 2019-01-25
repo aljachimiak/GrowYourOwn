@@ -33,11 +33,11 @@ class Home extends Component {
 		<div className="Home">
 			<Header />
 			<Grid>
-			<Col>
-				<div className="move-container">
-					{this.renderGameMoves()}
-				</div>
-			</Col>
+				<Col>
+					<div className="move-container">
+						{this.renderGameMoves()}
+					</div>
+				</Col>
 			</Grid>
 		</div>
 	  );

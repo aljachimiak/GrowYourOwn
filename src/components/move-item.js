@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {Panel, Badge, Table} from 'react-bootstrap';
 import BoardTile from './board-tile';
 
@@ -25,38 +25,38 @@ class MoveItem extends Component {
 								</div>
 							</div>
 							<div className="right">
-							<Table condensed>
-							<tbody>
-								<tr>
-									<td>Plant Growth:</td>
-									<td><span className="move-item-emoji" role="img" aria-labelledby="sprout">🌱</span>
-											<Badge>{this.state.move.growth}
-											</Badge></td>
-								</tr>
-								<tr>
-									<td>Resources: </td>
-									<td>
-										<p>
-											<span className="move-item-emoji" role="img" aria-labelledby="sun">☀️</span>
-											<Badge>{this.state.move.playerResources.sun}
-											</Badge>
-										</p>
-										<p>
-											<span className="move-item-emoji" role="img" aria-labelledby="rain">🌧</span>
-											<Badge>{this.state.move.playerResources.rain}
-											</Badge>
-										</p>
-										<p>
-											<span className="move-item-emoji" role="img" aria-labelledby="fertilizer">💩</span>
-											<Badge>{this.state.move.playerResources.fertilizer}
-											</Badge>
-										</p>
-									</td>
-								</tr>
-							</tbody>
-						</Table>
+								<Table condensed>
+									<tbody>
+										<tr>
+											<td>Plant Growth:</td>
+											<td><span className="move-item-emoji" role="img" aria-labelledby="sprout">🌱</span>
+												<Badge>{this.state.move.growth}
+												</Badge></td>
+										</tr>
+										<tr>
+											<td>Resources: </td>
+											<td>
+												<p>
+													<span className="move-item-emoji" role="img" aria-labelledby="sun">☀️</span>
+													<Badge>{this.state.move.playerResources.sun}
+													</Badge>
+												</p>
+												<p>
+													<span className="move-item-emoji" role="img" aria-labelledby="rain">🌧</span>
+													<Badge>{this.state.move.playerResources.rain}
+													</Badge>
+												</p>
+												<p>
+													<span className="move-item-emoji" role="img" aria-labelledby="fertilizer">💩</span>
+													<Badge>{this.state.move.playerResources.fertilizer}
+													</Badge>
+												</p>
+											</td>
+										</tr>
+									</tbody>
+								</Table>
 							</div>
-							
+
 						</div>
 					</Panel.Body>
 				</Panel>
