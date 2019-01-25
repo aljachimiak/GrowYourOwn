@@ -56,10 +56,11 @@ const determineNewResources = (args) => {
 	if (type === 'robot') {
 		// robo-calibrate increases all resources to a minimum of 2
 		const minResources = robotTileEnforceMin({game, playerIndex});
-		
+
+		// robo-calibrate decreases all high values to be 2 away from the minValue
 		const regResources = robotTileRegulatePeaks({game, playerIndex});
 
-		newResources = Object.assign(defaultResources, minResources, regResources);
+		newResources = Object.assign(startResources, minResources, regResources);
 
 	} else {
 		// player gets resources
@@ -92,7 +93,15 @@ const robotTileEnforceMin = (args) => {
 const robotTileRegulatePeaks = (args) => {
 	const resources = {};
 	const {game, playerIndex} = args;
-	const smallestAmount = 2;
+
+	// gather all the resource values into an array so we can do math
+	const values  = Object.keys(game.players[playerIndex].resources).map(type => {
+		return game.players[playerIndex].resources[type];
+	});
+	
+	// Math.min gets the smallest current value
+	// Math.max ensures that the smallest amount we will refer to is 2
+	const smallestAmount = Math.max(Math.min(...values), 2);
 
 	Object.keys(game.players[playerIndex].resources).forEach(type => {
 		// growth will be maximized on a turn where all resources are within 2 
@@ -108,7 +117,7 @@ const robotTileRegulatePeaks = (args) => {
 const growPlant = (args) => {
 	const {game, playerIndex} = args;
 	const growthAmount = determinePlantGrowth({game, playerIndex});
-	// todo implement for real
+
 	game.players[playerIndex].growth += growthAmount;
 
 	if (game.players[playerIndex].growth >= 11) {
