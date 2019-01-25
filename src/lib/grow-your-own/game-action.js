@@ -152,6 +152,10 @@ const reduceResources = (args) => {
 	const {game, playerIndex} = args;
 	// todo implement
 
+	Object.keys(game.players[playerIndex].resources).forEach(key => {
+		game.players[playerIndex].resources[key] -= 1;
+	});
+
 	return game;
 };
 
