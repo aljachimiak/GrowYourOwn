@@ -59,27 +59,46 @@ describe('GameAction', () => {
 	});
 
 	describe('robotTileRegulatePeaks', () => {
-		const player1 = new Player('Jones', 'red');
-		const game = new Game({players: [player1]});
+		describe('with too low values', () => {
+			it('returns expected resources', () => {
+				const player1 = new Player('Jones', 'red');
+				const game = new Game({players: [player1]});
+			
+				const playerIndex = 0;
+				game.players[playerIndex].position = 9;
+				const playerResources = {
+					sun: 6,
+					rain: 1,
+					fertilizer: 0
+				};
+				game.players[playerIndex].resources = playerResources;
 	
-		const playerIndex = 0;
-		game.players[playerIndex].position = 9;
-		const playerResources = {
-			sun: 6,
-			rain: 1,
-			fertilizer: 0
-		};
-		game.players[playerIndex].resources = playerResources;
-
-		const regResources = GameAction.robotTileRegulatePeaks({game, playerIndex});
-
-		it('returns expected resources', () => {
-			expect(regResources.sun).toBe(4);
+				const regResources = GameAction.robotTileRegulatePeaks({game, playerIndex});
+				expect(regResources.sun).toBe(4);
+				expect(regResources.hasOwnProperty('rain')).toBe(false);
+				expect(regResources.hasOwnProperty('fertilizer')).toBe(false);
+			});
 		});
 
-		it('does not return other resources', () => {
-			expect(regResources.hasOwnProperty('rain')).toBe(false);
-			expect(regResources.hasOwnProperty('fertilizer')).toBe(false);
+		describe('with low values that are above the low threshold', () => {
+			it('returns expected resources', () => {
+				const player1 = new Player('Jones', 'red');
+				const game = new Game({players: [player1]});
+			
+				const playerIndex = 0;
+				game.players[playerIndex].position = 9;
+				const playerResources = {
+					sun: 30,
+					rain: 22,
+					fertilizer: 32
+				};
+				game.players[playerIndex].resources = playerResources;
+	
+				const regResources = GameAction.robotTileRegulatePeaks({game, playerIndex});
+				expect(regResources.sun).toBe(24);
+				expect(regResources.hasOwnProperty('rain')).toBe(false);
+				expect(regResources.fertilizer).toBe(24);
+			});
 		});
 	});
 
