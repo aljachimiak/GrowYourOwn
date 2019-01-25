@@ -152,6 +152,17 @@ describe('GameAction', () => {
 
 	xdescribe('determinePlantGrowth');
 	xdescribe('growPlant');
-	xdescribe('reduceResources');
+
+	describe('reduceResources', () => {
+		describe('actually reduces the resources by one', () => {
+			const player1 = new Player('Jones', 'red');
+			let game = new Game({players: [player1]});
+		
+			const playerIndex = 0;
+			game = GameAction.reduceResources({game, playerIndex});
+			expect(game.players[playerIndex].resources.sun).toBe(4);
+		});
+	});
+
 	xdescribe('recordMove');
 });
