@@ -14,8 +14,6 @@ const takeTurn = (args) => {
 	game = GameAction.applyNewResources({game, playerIndex, dist});
 	game = GameAction.growPlant({game, playerIndex});
 
-	// bug! - do not reduce resources if plant growth is 0
-	game = GameAction.reduceResources({game, playerIndex});
 	game = GameAction.recordMove({game, playerIndex, dist});
 
 	return game;
