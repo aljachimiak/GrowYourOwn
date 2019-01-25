@@ -150,7 +150,20 @@ describe('GameAction', () => {
 		});
 	});
 
-	xdescribe('determinePlantGrowth');
+	describe('determinePlantGrowth', () => {
+		describe('with a zero in resources', () => {
+			it('returns zero growth', () => {
+				const player1 = new Player('Jones', 'red');
+				let game = new Game({players: [player1]});
+				const playerIndex = 0;
+
+				game.players[playerIndex].resources.sun = 0;
+
+				const growth = GameAction.determinePlantGrowth({game, playerIndex});
+				expect(growth).toBe(0);
+			});
+		});
+	});
 	xdescribe('growPlant');
 
 	describe('reduceResources', () => {
