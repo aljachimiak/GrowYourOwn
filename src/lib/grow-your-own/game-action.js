@@ -43,12 +43,6 @@ const determineNewResources = (args) => {
 	const tile = getBoardTile({game, playerIndex});
 	const type = tile.type;
 
-	const defaultResources = {
-		sun: 0,
-		rain: 0,
-		fertilizer: 0
-	};
-
 	const startResources = _.clone(game.players[playerIndex].resources);
 
 	let newResources;
@@ -115,10 +109,16 @@ const robotTileRegulatePeaks = (args) => {
 
 // growPlant
 const growPlant = (args) => {
-	const {game, playerIndex} = args;
+	let game = args.game;
+	const {playerIndex} = args;
 	const growthAmount = determinePlantGrowth({game, playerIndex});
 
 	game.players[playerIndex].growth += growthAmount;
+
+	// consume the resources
+	if (growthAmount > 0) {
+		game = GameAction.reduceResources({game, playerIndex});
+	}
 
 	if (game.players[playerIndex].growth >= 11) {
 		game.players[playerIndex].growth = 11; // maxHeight on plant is 11
@@ -129,10 +129,8 @@ const growPlant = (args) => {
 
 const determinePlantGrowth = (args) => {
 	const {game, playerIndex} = args;
-	const values = [];
-	// if balanced resources return 2
-	Object.keys(game.players[playerIndex].resources).forEach(key => {
-		values.push(game.players[playerIndex].resources[key]);
+	const values = Object.keys(game.players[playerIndex].resources).map(key => {
+		return game.players[playerIndex].resources[key];
 	});
 
 	const smallestValue = Math.min(...values);

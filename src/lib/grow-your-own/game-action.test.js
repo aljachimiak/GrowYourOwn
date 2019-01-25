@@ -212,8 +212,7 @@ describe('GameAction', () => {
 				const growth = GameAction.determinePlantGrowth({game, playerIndex});
 
 				game = GameAction.growPlant({game, playerIndex});
-				// console.log({game, growth});
-				// console.log(JSON.stringify(game, null, 2));
+				
 				expect(game.players[playerIndex].resources.rain).toBe(5);
 			});
 		});
