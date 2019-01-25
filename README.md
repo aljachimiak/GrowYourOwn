@@ -40,7 +40,7 @@ Here are some of the details of the game:
 - Each move in the game is stored on the game object and displayed in the react-app at the conclusion of the game.
 
 ### Details
-- 11 is a strange number to stop growing a plant.  The thought was to eventually have the ui incorporate [this animates svg I made on CodePen](https://codepen.io/aljachimiak/pen/oJObWE).  That was a little ambitious for this project.
+- 11 is a strange number to stop growing a plant.  The thought was to eventually have the ui incorporate [this animated svg I made on CodePen](https://codepen.io/aljachimiak/pen/oJObWE).  That was a little ambitious for this project.
 - There are unit tests for _most_ of the classes and methods.  In the interest of time, I have left some tests incomplete. There are also a few methods that purposefully do not conform to the stated rules of the game.
 - The game board is an array that recreates a physical trip around a monopoly style board.  You can [see the details here].(https://github.com/aljachimiak/GrowYourOwn/blob/master/src/lib/grow-your-own/board.js#L27-L36)
 - I think this feels like a cool and legitimate usage of the 💩 emoji.
@@ -53,6 +53,8 @@ Here are some of the details of the game:
 
 - [ ] Complete all game rules and tests for corner cases
 
+- [ ] Incorporate the animated svg to show plant growth
+
 - [ ] Introduce the ability for two players to alternate turns
 
 - [ ] Render the actual game board as a ui.
@@ -62,7 +64,7 @@ Here are some of the details of the game:
 - [ ] Remote Multiplayer - Implement the game actions in a web service which returns the game object back to the react-app via web-sockets.
 
 ## Design Details
-The game object that is mutated in each turn, is designed with live-remote-multiplayer in mind. The game object would eventually be manipulated by web0service that performs all the same actions that are [present in `GameAction`](https://github.com/aljachimiak/GrowYourOwn/blob/master/src/lib/grow-your-own/game-action.js).
+The game object that is mutated in each turn, is designed with live-remote-multiplayer in mind. The game object would eventually be manipulated by a web-service that performs all the same actions that are [present in `GameAction`](https://github.com/aljachimiak/GrowYourOwn/blob/master/src/lib/grow-your-own/game-action.js).
 
 The result is that `game-action.js` is a pretty hairy file because it is emulating a remote server.  A design for a self-contained approach would be to make the game action methods actually be on the `Game` class, and act on its own values.
 
