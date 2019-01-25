@@ -128,7 +128,6 @@ const growPlant = (args) => {
 };
 
 const determinePlantGrowth = (args) => {
-	// eslint-disable-next-line
 	const {game, playerIndex} = args;
 	const values = [];
 	// if balanced resources return 2
@@ -136,10 +135,16 @@ const determinePlantGrowth = (args) => {
 		values.push(game.players[playerIndex].resources[key]);
 	});
 
-	const smallestValue = Math.min(...values);	
-	// if there is a 0, return 0
+	const smallestValue = Math.min(...values);
+	const largestValue = Math.max(...values);
+	const difference = largestValue - smallestValue;
+
 	if (smallestValue === 0) {
 		return 0;
+	}
+
+	if (difference <= 2) {
+		return 2;
 	}
 
 	return 1;

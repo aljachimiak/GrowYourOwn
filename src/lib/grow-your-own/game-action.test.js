@@ -163,6 +163,42 @@ describe('GameAction', () => {
 				expect(growth).toBe(0);
 			});
 		});
+
+		describe('with balanced resources', () => {
+			it ('returns a growth of 2 with equivalent values', () => {
+				const player1 = new Player('Jones', 'red');
+				let game = new Game({players: [player1]});
+				const playerIndex = 0;
+
+				const growth = GameAction.determinePlantGrowth({game, playerIndex});
+				expect(growth).toBe(2);
+			});
+
+			it ('returns a growth of 2 with resources of [7, 5, 5]', () => {
+				const player1 = new Player('Jones', 'red');
+				let game = new Game({players: [player1]});
+				const playerIndex = 0;
+
+				game.players[playerIndex].resources.sun = 7;
+				const growth = GameAction.determinePlantGrowth({game, playerIndex});
+				expect(growth).toBe(2);
+			});
+		});
+
+		describe('with unblanced resources', () => {
+			it ('returns a growth of 1', () => {
+				const player1 = new Player('Jones', 'red');
+				let game = new Game({players: [player1]});
+				const playerIndex = 0;
+
+				game.players[playerIndex].resources.sun = 17;
+				game.players[playerIndex].resources.rain = 14;
+				game.players[playerIndex].resources.fertilizer = 8;
+
+				const growth = GameAction.determinePlantGrowth({game, playerIndex});
+				expect(growth).toBe(1);
+			});
+		})
 	});
 	xdescribe('growPlant');
 
