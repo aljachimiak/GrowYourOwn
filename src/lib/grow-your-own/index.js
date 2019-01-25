@@ -13,8 +13,8 @@ const takeTurn = (args) => {
 	game = GameAction.updatePlayerPosition({game, playerIndex, dist});
 	game = GameAction.applyNewResources({game, playerIndex, dist});
 	game = GameAction.growPlant({game, playerIndex});
-	game = GameAction.recordMove({game, playerIndex, dist});
 	game = GameAction.reduceResources({game, playerIndex});
+	game = GameAction.recordMove({game, playerIndex, dist});
 
 	return game;
 }
