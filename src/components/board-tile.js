@@ -12,13 +12,13 @@ class BoardTile extends Component {
 	determineColor() {
 		switch (this.state.tile.type) {
 			case 'sun':
-				return 'rgb(243 178 33)';
+				return '#f3b221';
 			case 'rain':
-				return 'rgb(21 174 251)';
+				return '#15aefb';
 			case 'fertilizer':
-				return 'rgb(149 95 53)';
+				return '#955f35';
 			case 'robot':
-				return 'rgb(21 174 251)';
+				return '#60959e';
 			default:
 				return '#777';
 		}
