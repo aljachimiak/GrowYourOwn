@@ -130,7 +130,18 @@ const growPlant = (args) => {
 const determinePlantGrowth = (args) => {
 	// eslint-disable-next-line
 	const {game, playerIndex} = args;
-	// todo - implment for real
+	const values = [];
+	// if balanced resources return 2
+	Object.keys(game.players[playerIndex].resources).forEach(key => {
+		values.push(game.players[playerIndex].resources[key]);
+	});
+
+	const smallestValue = Math.min(...values);	
+	// if there is a 0, return 0
+	if (smallestValue === 0) {
+		return 0;
+	}
+
 	return 1;
 };
 
@@ -150,7 +161,6 @@ const recordMove = (args) => {
 const reduceResources = (args) => {
 	// eslint-disable-next-line
 	const {game, playerIndex} = args;
-	// todo implement
 
 	Object.keys(game.players[playerIndex].resources).forEach(key => {
 		if (game.players[playerIndex].resources[key] > 0) {
