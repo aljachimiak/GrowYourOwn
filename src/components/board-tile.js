@@ -19,8 +19,9 @@ class BoardTile extends Component {
 				return 'rgb(149 95 53)';
 			case 'robot':
 				return 'rgb(21 174 251)';
+			default:
+				return '#777';
 		}
-		return '#00F';
 	}
 
 	render() {

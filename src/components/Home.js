@@ -16,7 +16,7 @@ class Home extends Component {
 
 	renderGameMoves() {
 		const moves = this.state.game.moves;
-		console.log(moves[0]);
+		// console.log(moves[0]);
 		return moves.map((move, index) => {
 			return (
 				<MoveItem 
