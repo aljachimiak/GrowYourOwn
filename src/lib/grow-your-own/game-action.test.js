@@ -200,7 +200,24 @@ describe('GameAction', () => {
 			});
 		})
 	});
-	xdescribe('growPlant');
+
+	describe('growPlant', () => {
+		describe('when plant growth is 0', () => {
+			it ('will not consume resources', () => {
+				const player1 = new Player('Jones', 'red');
+				let game = new Game({players: [player1]});
+				const playerIndex = 0;
+
+				game.players[playerIndex].resources.sun = 0;
+				const growth = GameAction.determinePlantGrowth({game, playerIndex});
+
+				game = GameAction.growPlant({game, playerIndex});
+				// console.log({game, growth});
+				// console.log(JSON.stringify(game, null, 2));
+				expect(game.players[playerIndex].resources.rain).toBe(5);
+			});
+		});
+	});
 
 	describe('reduceResources', () => {
 		describe('actually reduces the resources by one', () => {
