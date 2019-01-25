@@ -44,7 +44,7 @@ describe('Game', () => {
 		const game = new Game(args);
 		it('board', () => {
 			expect(Array.isArray(game.board.getBoard())).toBe(true);
-			expect(game.board.getBoard().length).toBe(36);
+			expect(game.board.getBoard().length).toBe(40);
 		});
 
 		it('hasWinner', () => {

@@ -13,7 +13,7 @@ describe('Board', () => {
 		counts[tile.type]++;
 	})
 	it('has 36 tiles', () => {
-		expect(gb.board.length).toBe(36);
+		expect(gb.board.length).toBe(40);
 	});
 
 	it('has 4 robot tiles', () => {
@@ -28,7 +28,7 @@ describe('Board', () => {
 		expect(counts.rain).toBe(12);
 	});
 
-	it('has 8 fertilizer tiles', () => {
-		expect(counts.fertilizer).toBe(8);
+	it('has 12 fertilizer tiles', () => {
+		expect(counts.fertilizer).toBe(12);
 	});
 });

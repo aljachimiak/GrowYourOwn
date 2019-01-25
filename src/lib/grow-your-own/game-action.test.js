@@ -108,7 +108,7 @@ describe('GameAction', () => {
 	
 		const playerIndex = 0;
 
-		game.players[playerIndex].position = 9;
+		game.players[playerIndex].position = 10;
 		const playerResources = {
 			sun: 6,
 			rain: 1,
@@ -131,7 +131,7 @@ describe('GameAction', () => {
 	
 		const playerIndex = 0;
 
-		game.players[playerIndex].position = 9;
+		game.players[playerIndex].position = 10;
 		const playerResources = {
 			sun: 6,
 			rain: 1,

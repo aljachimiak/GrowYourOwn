@@ -17,7 +17,7 @@ const applyNewResources = (args) => {
 	const {playerIndex, dist} = args;
 	// todo add errors for missing args
 
-	if (game.players[playerIndex].position >= 36) {
+	if (game.players[playerIndex].position >= 40) {
 		// the last tile index is 35
 		// we need to reset the position to an inbounds index
 		game = resetPlayerPosition(args);
@@ -34,7 +34,7 @@ const resetPlayerPosition = (args) => {
 	// todo add errors for missing args
 
 	const {game, playerIndex} = args;
-	game.players[playerIndex].position -= 36;
+	game.players[playerIndex].position -= 40;
 	return game;
 }
 

@@ -30,7 +30,7 @@ class Board {
 		// sun, rain, and fertilizer
 		for (let i = 0; i < 4; i++) {
 			board.push(farmRobot);
-			for(let j = 0; j < 8; j++) {
+			for(let j = 0; j < 9; j++) {
 				board.push(regularTiles[j % 3]);
 			}
 		}
