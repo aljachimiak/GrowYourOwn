@@ -1,5 +1,5 @@
 # 🌱 Grow Your Own
-GrowYourOwn is a plant growth simulator. 
+Grow Your Own is a plant growth simulator. 
 
 ### Getting started
 - clone the repo
@@ -23,41 +23,50 @@ npm t
 All of the code for the came is held in [`/src/lib/grow-your-own`](https://github.com/aljachimiak/GrowYourOwn/tree/master/src/lib/grow-your-own).
 
 Here are some of the details of the game:
-- the board consists of 4 different tiles, sun, rain, fertilizer, and robo-calibrate.
+- the board consists of 4 different tiles:
+    - sun
+    - rain
+    - fertilizer,
+    - robo-calibrate
 - A player starts the game by rolling two dice and moving to a tile.  
-- If a player lands on a resource tile, the player gets the amount shown on the dice of the resource added to their resources.
-- The player's plant grows 1 unit and consumes 1 of each resource.
-- If the player's resources are all balanced (within 2 units of each other), then the plant will grow an additional unit.
-- Landing on robo-calibrate restores the players low resources up to minimum of two units, and lowers the high resources to be within 2 of the lower resources.
+- If a player lands on a resource tile, 
+    - the player gets the amount shown on the dice of the resource added to their resources.
+    - The player's plant grows 1 unit and consumes 1 of each resource.
+    -If the player's resources are all balanced (within 2 units of each other), then the plant will grow an additional unit.
+- Landing on robo-calibrate 
+    - restores the players low resources up to minimum of two units, 
+    - and lowers the high resources to be within 2 of the lower resources.
 - The game ends when a player's plant reaches 11 units.
-- Each move in the game is stored and displayed in the react-app at the conclusion of the game.
+- Each move in the game is stored on the game object and displayed in the react-app at the conclusion of the game.
 
 ### Details
 - 11 is a strange number to stop growing a plant.  The thought was to eventually have the ui incorporate [this animates svg I made on CodePen](https://codepen.io/aljachimiak/pen/oJObWE).  That was a little ambitious for this project.
-- There are Unit tests for _most_ of the classes and methods.  In the interest of time, I have left some tests incomplete. There are also a few methods that purposefully do not conform to the stated rules of the game.
+- There are unit tests for _most_ of the classes and methods.  In the interest of time, I have left some tests incomplete. There are also a few methods that purposefully do not conform to the stated rules of the game.
 - The game board is an array that recreates a physical trip around a monopoly style board.  You can [see the details here].(https://github.com/aljachimiak/GrowYourOwn/blob/master/src/lib/grow-your-own/board.js#L27-L36)
 - I think this feels like a cool and legitimate usage of the 💩 emoji.
-- One to see the end game data is through the test runner. [Uncomment this line](https://github.com/aljachimiak/GrowYourOwn/blob/master/src/lib/grow-your-own/index.test.js#L26), and an entire complete game object will log out to the test terminal.
+- One way to see the end game data is through the test runner. [Uncomment this line](https://github.com/aljachimiak/GrowYourOwn/blob/master/src/lib/grow-your-own/index.test.js#L26), and an entire complete game object will log out to the test terminal.
 
 ## Roadmap
-[x] Working turn and win functionality so a complete game can be rendered.
+- [x] Working turn and win functionality so a complete game can be rendered.
 
-[x] Display game data in a React page
+- [x] Display game data in a React page
 
-[ ] Complete all game rules and tests for corner cases
+- [ ] Complete all game rules and tests for corner cases
 
-[ ] Introduce the ability for two players to alternate turns
+- [ ] Introduce the ability for two players to alternate turns
 
-[ ] Render the actual game board as a ui.
+- [ ] Render the actual game board as a ui.
 
-[ ] Make the Dice Roll and plant growth manual steps for humans to proceed through via a web browser.
+- [ ] Make the dice-roll and plant-growth manual steps for humans to proceed through via a web browser.
 
-[ ] Remote Multiplayer - Implement the game actions in a web service which returns the game object back to the react-app via web-sockets.
+- [ ] Remote Multiplayer - Implement the game actions in a web service which returns the game object back to the react-app via web-sockets.
 
 ## Design Details
 The game object that is mutated in each turn, is designed with live-remote-multiplayer in mind. The game object would eventually be manipulated by web0service that performs all the same actions that are [present in `GameAction`](https://github.com/aljachimiak/GrowYourOwn/blob/master/src/lib/grow-your-own/game-action.js).
 
 The result is that `game-action.js` is a pretty hairy file because it is emulating a remote server.  A design for a self-contained approach would be to make the game action methods actually be on the `Game` class, and act on its own values.
+
+------------------------
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
